@@ -11,7 +11,7 @@ import { Container, ProductTable, Total } from './styles';
 import * as CartActions from '../../store/modules/cart/actions';
 import { formatPrice } from '../../util/format';
 
-function Cart({ cart, total, removeFromCart, updateAmount }) {
+function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
   return (
     <Container>
       <ProductTable>
@@ -41,7 +41,7 @@ function Cart({ cart, total, removeFromCart, updateAmount }) {
                       size={20}
                       color="#7159c1"
                       onClick={() => {
-                        updateAmount(product.id, product.amount - 1);
+                        updateAmountRequest(product.id, product.amount - 1);
                       }}
                     />
                   </button>
@@ -49,7 +49,7 @@ function Cart({ cart, total, removeFromCart, updateAmount }) {
                   <button
                     type="button"
                     onClick={() => {
-                      updateAmount(product.id, product.amount + 1);
+                      updateAmountRequest(product.id, product.amount + 1);
                     }}
                   >
                     <MdAddCircleOutline size={20} color="#7159c1" />
